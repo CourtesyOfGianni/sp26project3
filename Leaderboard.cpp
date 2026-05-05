@@ -69,7 +69,7 @@ void quickSelectHelper(std::vector<Player>& players, int left, int right, int bo
     }
 }
 
-RankingResult Offline::quickSelectRank(std::vector<Player>& players) {
+RankingResult quickSelectRank(std::vector<Player>& players) {
     int k = players.size() / 10;
     int boundary = players.size() - k;
 
