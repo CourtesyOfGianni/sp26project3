@@ -56,26 +56,27 @@ int partition(std::vector<Player>& players, int left, int right) {
 }
 
 void quickSelectHelper(std::vector<Player>& players, int left, int right, int boundary) {
-    if (left >= right) return;
+    if (left >= right) {
+        return;
+    }
     
     int pivot_index = partition(players, left, right);
     
-    if (pivot_index == boundary) {
-        std::sort(players.begin() + pivot_index, players.begin() + right + 1);
-    } else if (pivot_index < boundary) {
+    if (pivot_index <= boundary) {
         quickSelectHelper(players, pivot_index + 1, right, boundary);
     } else {
         quickSelectHelper(players, left, pivot_index - 1, boundary);
     }
 }
 
-RankingResult quickSelectRank(std::vector<Player>& players) {
+RankingResult Offline::quickSelectRank(std::vector<Player>& players) {
     int k = players.size() / 10;
     int boundary = players.size() - k;
 
     auto start = std::chrono::high_resolution_clock::now();
 
     quickSelectHelper(players, 0, players.size() - 1, boundary);
+    std::sort(players.begin() + boundary, players.end());
 
     auto end = std::chrono::high_resolution_clock::now();
     double elapsed = std::chrono::duration<double, std::milli>(end - start).count();
