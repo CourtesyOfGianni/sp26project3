@@ -34,7 +34,7 @@ namespace Offline {
         std::pop_heap(players.begin(), players.end() - i); //move the max element to the end of the vector
     }
     auto top_players_start = players.end() - k; //get the top k players
-    std::reverse(top_players_start, players.end()); //reverse the order to get the top players in sorted order
+
 
     auto end = std::chrono::high_resolution_clock::now();
     double elapsed = std::chrono::duration<double, std::milli>(end - start).count();
