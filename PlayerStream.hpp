@@ -70,7 +70,6 @@ public:
      *
      * @param players The vector of Player objects to stream.
      */
-    VectorPlayerStream(const std::vector<Player>& players);
 
     /**
     * @brief Retrieves the next Player in the stream.

@@ -108,8 +108,6 @@ namespace Online {
         i = smallest;
     }
 }
-    Here's the final rankIncoming:
-cpp
 
 RankingResult rankIncoming(PlayerStream& stream, const size_t& reporting_interval) {
     std::vector<Player> min_heap;
